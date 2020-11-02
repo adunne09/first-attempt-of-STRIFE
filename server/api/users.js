@@ -1,112 +1,60 @@
-// API files from PairExercise.Readium-with-Redux server/api
+const router = require("express").Router();
+const { User } = require("../db");
 
-// authors.js
+//get all users
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.findAll();
+    res.send(users);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// const router = require('express').Router()
-// const {Author, Comment, Story} = require('../db')
+//get specific user by id
+router.get("/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    res.send(user);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// // GET /api/authors
-// router.get('/', async (req, res, next) => {
-//   try {
-//     const authors = await Author.findAll({
-//       attributes: ['id', 'name', 'imageUrl']
-//     })
-//     res.json(authors)
-//   }
-//   catch (error) {
-//     next(error)
-//   }
-// })
+//create new user
+router.post("/", async (req, res, next) => {
+  try {
+    const newUser = await User.create(req.body);
+    res.send(newUser);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// // GET /api/authors/:authorId
-// router.get('/:authorId', async (req, res, next) => {
-//   try {
-//     const author = await Author.findById(req.params.authorId)
-//     res.json(author)
-//   }
-//   catch (error) {
-//     next(error)
-//   }
-// })
+//update user
+router.put("/:id", async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    const updatedUser = await user.update(req.body);
+    res.send(updatedUser);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// // GET /api/authors/:authorId/comments
-// router.get('/:authorId/comments', async (req, res, next) => {
-//   try {
-//     const comments = await Comment.findAll({
-//       where: {
-//         authorId: req.params.authorId
-//       },
-//       include: [Author]
-//     })
-//     res.json(comments)
-//   }
-//   catch (error) {
-//     next(error)
-//   }
-// })
+//remove user
+router.delete("/:id", async (req, res, next) => {
+  try {
+    await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
 
-// // GET /api/authors/:authorId/stories
-// router.get('/:authorId/stories', async (req, res, next) => {
-//   try {
-//     const story = await Story.findAll({
-//       where: {
-//         authorId: req.params.authorId
-//       },
-//       include: [Author]
-//     })
-//     res.json(story)
-//   }
-//   catch (error) {
-//     next(error)
-//   }
-// })
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+});
 
-// module.exports = router
-
-// -----------------------------------------------------------------------------------
-
-// index.js
-
-// const router = require('express').Router()
-
-// router.use('/stories', require('./stories'))
-// router.use('/authors', require('./authors'))
-
-// module.exports = router
-
-// -----------------------------------------------------------------------------------
-
-// stories.js
-
-// const router = require('express').Router()
-// const {Story, Author, Comment} = require('../db')
-
-// // GET /api/stories
-// router.get('/', async (req, res, next) => {
-//   try {
-//     const stories = await Story.findAll({
-//       where: req.query,
-//       attributes: ['id', 'title'],
-//       include: [Author]
-//     })
-//     res.json(stories)
-//   }
-//   catch (error) {
-//     next(error)
-//   }
-// })
-
-// // GET /api/stories/:storyId
-// router.get('/:storyId', async (req, res, next) => {
-//   try {
-//     const story = await Story.findById(req.params.storyId, {
-//       include: [Author, {model: Comment, include: Author}]
-//     })
-//     res.json(story)
-//   }
-//   catch (error) {
-//     next(error)
-//   }
-// })
-
-// module.exports = router
+module.exports = router;
