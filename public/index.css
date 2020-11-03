@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 4rem;
+  align-items: center;
+}
+
+.nav-items {
+  display: flex;
+}
+
+.home {
+}
+
+.account-menu {
+  display: flex;
+}
+
+.logo {
+  display: flex;
+  margin-left: 2rem;
+}
+
+.start-button {
+  display: flex;
+  margin-right: 3rem;
+}
+
+.btn {
+  color: darkred;
+}
+
+.btn:hover {
+  transition: 0.3s all ease;
+  background-color: darkred;
+  color: white;
+}

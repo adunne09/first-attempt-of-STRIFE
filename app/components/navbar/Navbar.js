@@ -5,11 +5,12 @@ import StartButton from "../StartButton";
 
 const Navbar = () => {
   return (
-    <div id="navbar">
-      NAVBAR
+    <div className="navbar">
       <Logo />
-      <StartButton />
-      <AccountMenu />
+      <div className="nav-items">
+        <StartButton />
+        <AccountMenu />
+      </div>
     </div>
   );
 };
