@@ -24,4 +24,7 @@ const Routes = () => {
   );
 };
 
+//what does the 'withRouter' that the login workshop do as it relates to logging in and if its important how do i implement that into this particular layout
+//what is the difference between using component and the 'const ____ = (props) => ({})', i used it where the former is when i need to connect store
+
 export default Routes;

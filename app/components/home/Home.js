@@ -4,7 +4,7 @@ const Home = () => {
   console.log("INSIDE HOME");
   return (
     <div id="home">
-      <div>HELLO WORLD</div>
+      <div>HOME PAGE</div>
     </div>
   );
 };
