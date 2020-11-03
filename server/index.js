@@ -1,6 +1,8 @@
 const express = require("express");
 const path = require("path");
 const volleyball = require("volleyball");
+const session = require("express-session");
+const passport = require("passport");
 
 const app = express();
 
@@ -13,10 +15,23 @@ app.use(volleyball.custom({ debug }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(
+  session({
+    secret: "This is not a very secure secret...",
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
 // static middleware
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.use("/api", require("./api")); // include our routes!
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use("/api", require("./api")); //api route handler
+app.use("/auth", require("./auth")); //authentication router
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
