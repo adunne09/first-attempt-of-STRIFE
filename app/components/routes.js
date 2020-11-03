@@ -6,17 +6,17 @@ import {
   Switch,
 } from "react-router-dom";
 import Home from "./home/Home";
+import Navbar from "./navbar/Navbar";
 
-export const Routes = () => {
+const Routes = () => {
   return (
     <Router>
       <div>
+        <Navbar />
         <main>
           <Switch>
-            {console.log("INSIDE ROUTES")}
-            {/* <Route path="/home" component={Home} /> */}
+            <Route path="/home" component={Home} />
             <Redirect from="/" to="/home" />
-            <Route path="/" component={Home} />
           </Switch>
         </main>
       </div>
@@ -24,4 +24,4 @@ export const Routes = () => {
   );
 };
 
-//export default Routes;
+export default Routes;
