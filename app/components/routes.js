@@ -7,15 +7,16 @@ import {
 } from "react-router-dom";
 import Home from "./home/Home";
 
-const Routes = () => {
+export const Routes = () => {
   return (
     <Router>
       <div>
         <main>
           <Switch>
-            <Route path="/home" component={Home} />
+            {console.log("INSIDE ROUTES")}
+            {/* <Route path="/home" component={Home} /> */}
             <Redirect from="/" to="/home" />
-            {/* <Route path="/" component={Home} /> */}
+            <Route path="/" component={Home} />
           </Switch>
         </main>
       </div>
@@ -23,4 +24,4 @@ const Routes = () => {
   );
 };
 
-export default Routes;
+//export default Routes;

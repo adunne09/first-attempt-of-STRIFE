@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-dedux";
+import { connect } from "react-redux";
 import { fetchMe } from "../redux/users";
 
 class AccountMenu extends Component {

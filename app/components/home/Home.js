@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./navbar/Navbar";
 
 export default class Home extends Component {
   render() {
+    console.log("INSIDE HOME");
     return (
-      <div>
-        <div>
-          <Navbar />
-        </div>
+      <div id="home">
+        <div>HELLO WORLD</div>
+        <Navbar />
       </div>
     );
   }
