@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./home/Home";
 import Navbar from "./navbar/Navbar";
+import LoginPage from "./login/LoginPage";
 
 const Routes = () => {
   return (
@@ -15,6 +16,7 @@ const Routes = () => {
         <Navbar />
         <main>
           <Switch>
+            <Route path="/login" component={LoginPage} />
             <Route path="/home" component={Home} />
             <Redirect from="/" to="/home" />
           </Switch>

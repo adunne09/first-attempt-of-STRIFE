@@ -35,7 +35,7 @@ passport.serializeUser((user, done) => {
 // gets triggered by our passport session middleware for EVERY request
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await User.findById(id);
+    const user = await User.findByPk(id);
     // will mean that `req.user` is equal to the user we just found
     done(null, user);
   } catch (error) {

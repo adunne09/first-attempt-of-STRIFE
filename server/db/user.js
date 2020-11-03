@@ -4,22 +4,28 @@ const db = require("./database");
 const User = db.define("user", {
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    },
-    unique: true,
+    // allowNull: false,
+    // validate: {
+    //   notEmpty: true,
+    // },
+    // unique: true,
   },
   imageUrl: {
     type: Sequelize.STRING,
   },
   email: {
     type: Sequelize.STRING,
-    allowNull: false,
+    // allowNull: false,
     validate: {
-      notEmpty: true,
+      // notEmpty: true,
       isEmail: true,
     },
+  },
+  password: {
+    type: Sequelize.STRING,
+  },
+  googleId: {
+    type: Sequelize.STRING,
   },
   // friends: {
   //   type: Sequelize.ARRAY,

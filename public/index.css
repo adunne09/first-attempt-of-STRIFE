@@ -17,6 +17,7 @@
 }
 
 .logo {
+  cursor: pointer;
   display: flex;
   margin-left: 2rem;
 }
@@ -27,6 +28,7 @@
 }
 
 .btn {
+  cursor: pointer;
   color: darkred;
 }
 
