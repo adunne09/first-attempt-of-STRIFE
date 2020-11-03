@@ -61,7 +61,7 @@ export const putUser = (user) => {
 // };
 
 //AUTH
-export const gotMe = () => {
+export const fetchMe = () => {
   return async (dispatch) => {
     try {
       const res = await axios.get("/auth/me");
