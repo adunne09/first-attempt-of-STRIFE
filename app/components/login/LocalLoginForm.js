@@ -6,12 +6,20 @@ const LocalLoginForm = (props) => {
     <form onSubmit={handleSubmit}>
       <div className="local-login">
         <div className="login-email">
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" className="input" />
+          <input
+            type="email"
+            name="email"
+            className="input"
+            placeholder="email"
+          />
         </div>
         <div className="login-password">
-          <label htmlFor="email">Password</label>
-          <input type="password" name="password" className="input" />
+          <input
+            type="password"
+            name="password"
+            className="input"
+            placeholder="password"
+          />
         </div>
         <div className="login-submit">
           <button type="submit" className="local-login-submit">

@@ -62,10 +62,12 @@ router.get(
   })
 );
 
+// ^^^ https://developers.google.com/identity/sign-in/web/reference#googleusergetbasicprofile 'get permission from the user to access the speified scopes offline examplesL scioe: 'profile email'
+
 router.get(
   "/callback",
   passport.authenticate("google", {
-    successRedirect: "/home", //this might be an issue with my redirect
+    successRedirect: "/home", //this might be an issue with my redirect, both redirect to the same place
     failureRedirect: "/",
   })
 );

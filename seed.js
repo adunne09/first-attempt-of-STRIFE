@@ -107,18 +107,22 @@ const users = [
   {
     name: "adunne09",
     email: "alex12dunne@gmail.com",
+    password: "urmother",
   },
   {
     name: "loltyler1",
     email: "loltyler1@gmail.com",
+    password: "tyler",
   },
   {
     name: "ninja",
     email: "ninja@gmail.com",
+    password: "ninja",
   },
   {
     name: "tfue",
     email: "tfue@gmail.com",
+    password: "tfue",
   },
 ];
 

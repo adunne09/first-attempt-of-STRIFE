@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import OauthLoginForm from "./OauthLoginForm";
 import LocalLoginForm from "./LocalLoginForm";
+import { login } from "../../redux/users";
 
 //three parts - local sign in option, google sign in option, or register account option
 

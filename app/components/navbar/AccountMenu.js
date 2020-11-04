@@ -9,6 +9,7 @@ class AccountMenu extends Component {
   }
 
   render() {
+    console.log(this.props, "<<<<<<PROPS");
     return (
       <div className="account-menu">
         {!this.props.user ? (
@@ -22,6 +23,12 @@ class AccountMenu extends Component {
     );
   }
 }
+
+//google login creates new user in DB but doesnt change accountMenu to display account name
+//maybe because account name is null?
+//later, check if we can login after created account with google login
+
+//add code that google provides for google sign in button
 
 const mapState = (state) => ({
   user: state.user,

@@ -1,9 +1,9 @@
 import axios from "axios";
 
 const GET_USER = "GET_USER";
-export const getUser = (game) => ({
+export const getUser = (user) => ({
   type: GET_USER,
-  game,
+  user,
 });
 export const fetchUser = (id) => {
   return async (dispatch) => {
