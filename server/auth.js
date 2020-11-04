@@ -10,7 +10,7 @@ router.get("/me", async (req, res, next) => {
     if (!req.session.userId) {
       res.sendStatus(401);
     } else {
-      const user = await User.findById(req.session.userId);
+      const user = await User.findByPk(req.session.userId);
       if (!user) {
         res.sendStatus(401);
       } else {
@@ -31,7 +31,7 @@ router.put("/login", async (req, res, next) => {
       },
     });
     if (!user) {
-      res.status(401).send(new Error("INSIDE AUTH LOGIN ROUTE"));
+      res.sendStatus(401);
     } else {
       // attach user id to the session
       req.session.userId = user.id;

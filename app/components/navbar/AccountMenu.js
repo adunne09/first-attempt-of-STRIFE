@@ -5,13 +5,10 @@ import { Link } from "react-router-dom";
 
 class AccountMenu extends Component {
   componentDidMount() {
-    console.log("COMPONENT DID MOUNT");
     this.props.fetchMe();
   }
 
   render() {
-    console.log(this.props, "<<<<<<PROPS"); //why is log the first thing that loads?
-    console.log(this.state, "<<<STATE");
     return (
       <div className="account-menu">
         {console.log("HELLLLOOO WWOORLD")}

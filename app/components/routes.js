@@ -14,6 +14,7 @@ const Routes = () => {
     <Router>
       <div>
         <main>
+          <Navbar />
           <Switch>
             <Route path="/login" component={LoginPage} />
             <Route path="/home" component={Home} />

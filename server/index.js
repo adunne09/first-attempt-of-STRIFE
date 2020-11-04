@@ -24,7 +24,6 @@ app.use(
 );
 
 // static middleware
-app.use(express.static(path.join(__dirname, "../public")));
 
 //passport
 app.use(passport.initialize());
@@ -32,6 +31,8 @@ app.use(passport.session());
 
 app.use("/api", require("./api")); //api route handler
 app.use("/auth", require("./auth")); //authentication router
+
+app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));
