@@ -91,6 +91,7 @@ export default function userReducer(state = {}, action) {
   switch (action.type) {
     case GET_USER:
       return action.user;
+    // return { ...state, user: action.user };
     //
     // { ...state, user: {...state.user, ...action.user} }
     case NEW_USER:

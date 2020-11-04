@@ -31,7 +31,8 @@ const mapDispatch = (dispatch, ownProps) => {
       });
       await dispatch(thunk);
       // once that is complete, change the URL to /home
-      ownProps.history.push("/");
+      console.log("RIGHT AFTER HANDLE SUBMIT DISPATCH, BEFORE history.push");
+      ownProps.history.push("/"); // '/home' breaks it, why?
     },
   };
 };
