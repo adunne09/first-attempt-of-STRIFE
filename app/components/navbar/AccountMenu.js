@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchMe } from "../../redux/users";
+import { fetchMe, logout } from "../../redux/users";
 import { Link } from "react-router-dom";
 
 class AccountMenu extends Component {
@@ -16,7 +16,12 @@ class AccountMenu extends Component {
             <button className="btn">Log In</button>
           </Link>
         ) : (
-          <div className="menu">{this.props.user.name}</div>
+          <div className="menu">
+            {this.props.user.name}
+            <div>
+              <button onClick={() => this.props.handleLogout()}>Log Out</button>
+            </div>
+          </div>
         )}
       </div>
     );
@@ -37,6 +42,11 @@ const mapState = (state) => {
 
 const mapDispatch = (dispatch) => ({
   fetchMe: () => dispatch(fetchMe()),
+  async handleLogout() {
+    const thunk = logout();
+    await dispatch(thunk);
+    ownProps.history.push("/home");
+  },
 });
 
 export default connect(mapState, mapDispatch)(AccountMenu);
