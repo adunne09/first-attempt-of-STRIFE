@@ -11,7 +11,6 @@ class AccountMenu extends Component {
   render() {
     return (
       <div className="account-menu">
-        {console.log("HELLLLOOO WWOORLD")}
         {!this.props.user.id ? (
           <Link to={`/login`}>
             <button className="btn">Log In</button>
