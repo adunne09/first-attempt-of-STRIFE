@@ -13,7 +13,6 @@ const Routes = () => {
   return (
     <Router>
       <div>
-        <Navbar />
         <main>
           <Switch>
             <Route path="/login" component={LoginPage} />

@@ -31,7 +31,7 @@ router.put("/login", async (req, res, next) => {
       },
     });
     if (!user) {
-      res.sendStatus(401);
+      res.status(401).send(new Error("INSIDE AUTH LOGIN ROUTE"));
     } else {
       // attach user id to the session
       req.session.userId = user.id;

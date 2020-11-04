@@ -16,6 +16,7 @@ const verificationCallback = async (
         googleId: profile.id,
       },
       defaults: {
+        name: profile.displayName,
         email: profile.emails[0].value,
         imageUrl: profile.photos[0].value,
       },
@@ -58,7 +59,7 @@ passport.use(strategy);
 router.get(
   "/",
   passport.authenticate("google", {
-    scope: "email",
+    scope: ["email", "profile"],
   })
 );
 
@@ -68,6 +69,6 @@ router.get(
   "/callback",
   passport.authenticate("google", {
     successRedirect: "/home", //this might be an issue with my redirect, both redirect to the same place
-    failureRedirect: "/",
+    failureRedirect: "/login",
   })
 );

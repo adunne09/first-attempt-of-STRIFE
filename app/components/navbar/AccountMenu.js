@@ -14,7 +14,8 @@ class AccountMenu extends Component {
     console.log(this.state, "<<<STATE");
     return (
       <div className="account-menu">
-        {!this.props.user ? (
+        {console.log("HELLLLOOO WWOORLD")}
+        {!this.props.user.id ? (
           <Link to={`/login`}>
             <button className="btn">Log In</button>
           </Link>
@@ -32,9 +33,11 @@ class AccountMenu extends Component {
 
 //add code that google provides for google sign in button
 
-const mapState = (state) => ({
-  user: state.user,
-});
+const mapState = (state) => {
+  return {
+    user: state.user,
+  };
+};
 
 const mapDispatch = (dispatch) => ({
   fetchMe: () => dispatch(fetchMe()),
